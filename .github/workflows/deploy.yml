@@ -1,0 +1,32 @@
+name: Deploy Redash+
+on:
+  push:
+    branches:
+      - main
+jobs:
+  deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: "16.x"
+      - name: Install dependencies
+        run: npm install
+      - name: Test
+        run: npm run ci
+      - name: Build
+        run: npm run build
+      - name: Packaging
+        run: npm run pack
+      - name: Chrome Extension upload & publish
+        uses: Passiverecords/chrome-extension-upload-action@1.4.1
+        with:
+          refresh-token: "xxxxxxxxxxxxxxxxxxxxxx"
+          client-id: "xxxxxxxxxxxxx"
+          client-secret: "xxxxxxxxxxxx"
+          file-name: "./extension.zip"
+          app-id: "xzc12xzc21cx23"
+          publish: true

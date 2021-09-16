@@ -1,0 +1,14 @@
+{
+  "manifest_version": 3,
+  "name": "Redash+",
+  "version": "0.0.0",
+  "description": "Make Redash even more useful.",
+  "permissions": ["tabs", "scripting", "activeTab", "storage"],
+  "host_permissions": ["http://*/dashboard/", "https://*/dashboard/"],
+  "action": {
+    "default_popup": "settings.html"
+  },
+  "background": {
+    "service_worker": "dist/background.js"
+  }
+}

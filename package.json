@@ -1,0 +1,54 @@
+{
+  "name": "redashp",
+  "version": "0.0.0",
+  "description": "Redash+ is a Chrome extension that makes Redash even more useful.",
+  "main": "dist/background.js",
+  "scripts": {
+    "dev": "npm run build:watch",
+    "build": "rm -rf lib && rollup -c",
+    "build:watch": "npm run build -- -w",
+    "ci": "run-p test lint format:ci",
+    "test": "jest",
+    "lint": "eslint",
+    "format": "prettier 'src/**/*.ts' '*.@(md|js|json)'",
+    "format:ci": "npm run format -- -l",
+    "format:fix": "npm run format -- --write",
+    "bundle": "node scripts/bundle.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/balus-co-ltd/redashp.git"
+  },
+  "keywords": [
+    "redash"
+  ],
+  "author": {
+    "name": "Daisuke Mino",
+    "email": "daisuke.mino@gmail.com",
+    "url": "https://github.com/minodisk"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/balus-co-ltd/redashp/issues"
+  },
+  "homepage": "https://github.com/balus-co-ltd/redashp#readme",
+  "dependencies": {
+    "ky": "^0.28.5"
+  },
+  "devDependencies": {
+    "@rollup/plugin-node-resolve": "^13.0.4",
+    "@rollup/plugin-typescript": "^8.2.5",
+    "@types/chrome": "^0.0.157",
+    "@typescript-eslint/eslint-plugin": "^4.31.0",
+    "@typescript-eslint/parser": "^4.31.0",
+    "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.24.2",
+    "eslint-plugin-unused-imports": "^1.1.4",
+    "jest": "^27.1.1",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^2.3.2",
+    "rollup": "^2.56.3",
+    "typescript": "^4.4.2"
+  }
+}
