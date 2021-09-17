@@ -113,7 +113,7 @@ export async function embedVars(
     .json<Dashboard>();
 
   await Promise.all(
-    src.widgets.map((widget) =>
+    src.widgets.map(async (widget) =>
       ky.post("widgets", {
         ...options,
         json: {

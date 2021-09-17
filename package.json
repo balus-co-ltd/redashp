@@ -1,19 +1,17 @@
 {
   "name": "redashp",
-  "version": "0.0.0",
   "description": "Redash+ is a Chrome extension that makes Redash even more useful.",
   "main": "dist/background.js",
   "scripts": {
     "dev": "npm run build:watch",
     "build": "rm -rf lib && rollup -c",
     "build:watch": "npm run build -- -w",
-    "ci": "run-p test lint format:ci",
-    "test": "jest",
+    "ci": "run-p lint format:ci",
     "lint": "eslint",
     "format": "prettier 'src/**/*.ts' '*.@(md|js|json)'",
     "format:ci": "npm run format -- -l",
     "format:fix": "npm run format -- --write",
-    "bundle": "node scripts/bundle.js"
+    "bundle": "zip -r redashp.zip manifest.json assets dist"
   },
   "repository": {
     "type": "git",

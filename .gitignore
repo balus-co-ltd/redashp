@@ -137,4 +137,4 @@ typings/
 # Extension resources
 
 dist
-!dist/manifest.json
+*.zip
